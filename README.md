@@ -1,24 +1,31 @@
-# README
+A(nother) Smart Mirror
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby version 2.3.3
+Rails version 5.0.1
+React for front-end
 
-Things you may want to cover:
+Database (postgres) included for stretch goals
 
-* Ruby version
+MVP goals: 
 
-* System dependencies
+-geolocation functionality for localized weather
+-displays:
 
-* Configuration
+  -Weather
+  -Time
 
-* Database creation
+Stretch goals:
 
-* Database initialization
+-show 3 or 5 day forecast in Weather
+-show latest emails or news
 
-* How to run the test suite
+-add touch functionality for:
+  
+    -expanding weather information
+    -cycling through saved cities for times
+    -expanding email integration
+    -expanding news integration
 
-* Services (job queues, cache servers, search engines, etc.)
+APIs used: 
 
-* Deployment instructions
-
-* ...
+openweathermap.org for weather
