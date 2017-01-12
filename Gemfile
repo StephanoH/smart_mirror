@@ -34,8 +34,6 @@ gem 'jbuilder', '~> 2.5'
 
 # React for front-end
 gem 'react-rails'
-# Geokit-Rails for geolocation 
-gem 'geokit-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
