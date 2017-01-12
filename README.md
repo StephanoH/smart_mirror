@@ -28,4 +28,5 @@ Stretch goals:
 
 APIs used: 
 
-openweathermap.org for weather
+Google Maps Api for reverse geocoding (human readable location from coordinates)
+OpenWeatherMap for weather
