@@ -4,27 +4,41 @@ var Display = React.createClass({
     return {
       latitude: null,
       longitude: null,
+      city: null,
+      state: null,
     };
+
+    this.getLocation = this.getLocation.bind(this);
   },
 
   componentWillMount: function() {
-    this.getLocation();
+    this.getCoordinates();
   },
 
-  getLocation: function() {
+  getCoordinates: function() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(this.savePosition);
+      navigator.geolocation.getCurrentPosition(this.setPosition);
     } else {
       alert("Geolocation is not supported.")
     }
   },
 
-  savePosition: function(position) {
-    console.log(position.coords.latitude),
-
+  setPosition: function(position) {
     this.setState({
       latitude: position.coords.latitude,
       longitude: position.coords.longitude,
+    });
+    this.getLocation(this.state);
+  },
+
+  getLocation: function(field) {
+    var that = this;
+    var googleMapsApi = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + this.state.latitude + ',' + this.state.longitude + '&key=AIzaSyBjzaL0Xq0nQNX2z-_5JDP0V8YOm6myLKM';
+    $.get(googleMapsApi, function(data) {
+      that.setState({
+        city: data.results[0].address_components[3].long_name,
+        state: data.results[0].address_components[5].short_name
+      });
     });
   },
 
@@ -33,6 +47,8 @@ var Display = React.createClass({
       <div>
         <h1> Latitude: {this.state.latitude} </h1>
         <h1> Longitude: {this.state.longitude} </h1>
+        <h1> City: {this.state.city} </h1>
+        <h1> State: {this.state.state} </h1>
       </div>
     )
   }
