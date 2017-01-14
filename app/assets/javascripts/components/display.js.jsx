@@ -33,7 +33,7 @@ var Display = React.createClass({
 
   getLocation: function(field) {
     var that = this;
-    var googleMapsApi = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + this.state.latitude + ',' + this.state.longitude + '&key=AIzaSyBjzaL0Xq0nQNX2z-_5JDP0V8YOm6myLKM';
+    var googleMapsApi = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + this.state.latitude + ',' + this.state.longitude + '&key=' + this.props.google_maps_api_key;
     $.get(googleMapsApi, function(data) {
       that.setState({
         city: data.results[0].address_components[3].long_name,
