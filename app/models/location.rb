@@ -1,6 +1,5 @@
 class Location < ApplicationRecord
   require 'socket'
-  acts_as_mappable
 
   def local_ip
     orig, Socket.do_not_reverse_lookup = Socket.do_not_reverse_lookup, true  # turn off reverse DNS resolution temporarily

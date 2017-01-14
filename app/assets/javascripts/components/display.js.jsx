@@ -4,6 +4,8 @@ var Display = React.createClass({
     return {
       latitude: null,
       longitude: null,
+      city: null,
+      state: null,
     };
   },
 
@@ -14,6 +16,11 @@ var Display = React.createClass({
   getLocation: function() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.savePosition);
+      $.GET(
+        url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + this.state.latitude + ',' + this.state.longitude + '&key=AIzaSyBjzaL0Xq0nQNX2z-_5JDP0V8YOm6myLKM', 
+      ).done(function(response){
+        console.log(response);
+      });
     } else {
       alert("Geolocation is not supported.")
     }
