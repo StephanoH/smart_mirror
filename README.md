@@ -11,8 +11,8 @@ MVP goals:
 -geolocation functionality for localized weather
 -displays:
 
-  -Weather
-  -Time
+    -Weather
+    -Time
 
 Stretch goals:
 
