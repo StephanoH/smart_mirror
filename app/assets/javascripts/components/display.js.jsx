@@ -7,8 +7,6 @@ var Display = React.createClass({
       city: null,
       state: null,
     };
-
-    this.getLocation = this.getLocation.bind(this);
   },
 
   componentWillMount: function() {
