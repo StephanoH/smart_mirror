@@ -45,6 +45,14 @@ var Location = React.createClass({
           });
         };
       };
+      that.saveLocation(that.state);
+    });
+  },
+
+  saveLocation: function(state) {
+    console.log(state);
+    $.post('/location', this.state).done(function(response) {
+      console.log(response);
     });
   },
 
