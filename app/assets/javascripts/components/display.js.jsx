@@ -33,12 +33,20 @@ var Display = React.createClass({
 
   getLocation: function(field) {
     var that = this;
-    var googleMapsApi = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + this.state.latitude + ',' + this.state.longitude + '&key=' + this.props.google_maps_api_key;
+    var googleMapsApi = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + this.state.latitude + ',' + this.state.longitude + '&key=' + this.props.googleMapsApiKey;
     $.get(googleMapsApi, function(data) {
-      that.setState({
-        city: data.results[0].address_components[3].long_name,
-        state: data.results[0].address_components[5].short_name
-      });
+      for (var i=0; i < data.results[0].address_components.length; i++) {
+        var element = data.results[0].address_components[i];
+        if (element.types[0] === "locality") {
+          that.setState({
+            city: element.long_name
+          });          
+        } else if (element.types[0] === "administrative_area_level_1") {
+          that.setState({
+            state: element.short_name
+          });
+        };
+      };
     });
   },
 
