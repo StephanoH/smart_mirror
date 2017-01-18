@@ -60,6 +60,7 @@ var Location = React.createClass({
     return (
       <div>
         <div className="weather">
+          <Weather lat={this.state.latitude} lon={this.state.longitude}/>
         </div>
         <div className="location">
           <h1>{this.state.city}, {this.state.state}</h1>
