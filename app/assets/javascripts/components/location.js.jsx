@@ -1,13 +1,15 @@
 var Location = React.createClass({
 
-  getInitialState: function() {
-    return {
-      latitude: null,
-      longitude: null,
-      city: null,
-      state: null,
-    };
-  },
+// Need to restructure this component so that it has no state, instead receives props from Display's states and update their values based on the fuctionality in this component.
+
+  // getInitialState: function() {
+  //   return {
+  //     latitude: null,
+  //     longitude: null,
+  //     city: null,
+  //     state: null,
+  //   };
+  // },
 
   componentWillMount: function() {
     this.getCoordinates();
@@ -21,12 +23,13 @@ var Location = React.createClass({
     }
   },
 
-  setPosition: function(position) {
-    this.setState({
-      latitude: position.coords.latitude,
-      longitude: position.coords.longitude,
-    });
-    this.getLocation(this.state);
+  setPosition: function(field, change) {
+    // this.setState({
+      // latitude: position.coords.latitude,
+      // longitude: position.coords.longitude,
+    // });
+    this.savePostion(this, position.coords.latitude);
+    // this.getLocation(this.state);
   },
 
   getLocation: function(field) {
@@ -60,10 +63,10 @@ var Location = React.createClass({
     return (
       <div>
         <div className="weather">
-          <Weather lat={this.state.latitude} lon={this.state.longitude}/>
+          <Weather lat={this.props.latitude} lon={this.props.longitude}/>
         </div>
         <div className="location">
-          <h1>{this.state.city}, {this.state.state}</h1>
+          <h1>{this.props.city}, {this.props.state}</h1>
         </div>
       </div>
     )
