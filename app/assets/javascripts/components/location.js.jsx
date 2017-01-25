@@ -6,49 +6,42 @@ var Location = React.createClass({
 
   getCoordinates: function() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(this.setCoordinates);
+      navigator.geolocation.getCurrentPosition(this.getCityAndState);
     } else {
       alert("Geolocation is not supported.")
     }
   },
 
-  setCoordinates: function(position) {
-    var coordinates = {
+  getCityAndState: function(position) {
+    console.log("GetLocation");
+
+    var location = {
       latitude: position.coords.latitude,
       longitude: position.coords.longitude
     };
-    this.props.saveCoordinates(coordinates);
-  },
 
-  getLocation: function(field) {
+    var googleMapsURL = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + location.latitude + ',' + location.longitude + '&key=' + this.props.googleMapsApiKey;
+
     var that = this;
-    var googleMapsApi = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + this.state.latitude + ',' + this.state.longitude + '&key=' + this.props.googleMapsApiKey;
-    $.get(googleMapsApi, function(data) {
-      for (var i=0; i < data.results[0].address_components.length; i++) {
-        var element = data.results[0].address_components[i];
+
+    $.get(googleMapsURL).done(function(response) {
+      for (var i=0; i < response.results[0].address_components.length; i++) {
+        var element = response.results[0].address_components[i];
         if (element.types[0] === "locality") {
-          that.setState({
-            city: element.long_name
-          });          
+          location["city"] = element.long_name;
         } else if (element.types[0] === "administrative_area_level_1") {
-          that.setState({
-            state: element.short_name
-          });
+          location["state"] = element.short_name;
         };
       };
+      that.props.saveLocation(location);
     });
-  },
-
-  saveLocation: function(state) {
-    $.post('/location', this.state).done(function(response) {
-      console.log(response);
-    });
+    console.log(location);
   },
 
   render: function(){
     return (
         <div className="location">
-          <h1>{this.props.city}, {this.props.state}</h1>
+          <h1>{this.props.state.city}, {this.props.state.state}</h1>
         </div>
     )
   }

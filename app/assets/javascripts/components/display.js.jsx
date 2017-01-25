@@ -9,16 +9,18 @@ var Display = React.createClass({
 
   },
 
-  saveCoordinates: function(data) {
-    console.log(data);    
-    // this.setState(change);
-    // console.log(this.state);
+  saveLocation: function(data) {
+    this.setState(data);
+
+    $.post('/location', this.state).done(function(response) {
+      console.log(response);
+    });
   },
 
   render: function() {
     return (
       <div className="weather-location"> 
-        <Location googleMapsApiKey={this.props.googleMapsApiKey} saveCoordinates={this.saveCoordinates} city={this.state.city} state={this.state.state}/>
+        <Location googleMapsApiKey={this.props.googleMapsApiKey} saveLocation={this.saveLocation} state={this.state}/>
       </div>
     )
   }
