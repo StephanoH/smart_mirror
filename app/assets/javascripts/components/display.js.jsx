@@ -1,4 +1,5 @@
 var Display = React.createClass({
+
   getInitialState: function() {
     return ({
       city: null,
@@ -6,7 +7,6 @@ var Display = React.createClass({
       latitude: null,
       longitude: null
     });
-
   },
 
   saveLocation: function(data) {
@@ -19,8 +19,8 @@ var Display = React.createClass({
 
   render: function() {
     return (
-      <div className="weather-location"> 
-        <Location googleMapsApiKey={this.props.googleMapsApiKey} saveLocation={this.saveLocation} state={this.state}/>
+      <div className="container">
+        <Location googleMapsApiKey={this.props.googleMapsApiKey} openWeatherMapApiKey={this.props.openWeatherMapApiKey} saveLocation={this.saveLocation} state={this.state}/>
       </div>
     )
   }
