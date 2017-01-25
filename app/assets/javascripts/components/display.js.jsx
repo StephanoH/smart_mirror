@@ -13,7 +13,7 @@ var Display = React.createClass({
     this.setState(data);
 
     $.post('/location', this.state).done(function(response) {
-      console.log(response)
+      console.log(response);
     });
   },
 
