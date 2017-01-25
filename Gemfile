@@ -34,8 +34,6 @@ gem 'jbuilder', '~> 2.5'
 
 # Use React for front-end
 gem 'react-rails'
-# Use weather-icons-rails for weather icons
-gem 'weather-icons-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
