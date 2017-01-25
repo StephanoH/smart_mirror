@@ -1,4 +1,5 @@
 var Display = React.createClass({
+
   getInitialState: function() {
     return ({
       city: null,
@@ -13,13 +14,13 @@ var Display = React.createClass({
     this.setState(data);
 
     $.post('/location', this.state).done(function(response) {
-      console.log(response);
+      console.log(response)
     });
   },
 
   render: function() {
     return (
-      <div className="weather-location"> 
+      <div className="container">
         <Location googleMapsApiKey={this.props.googleMapsApiKey} saveLocation={this.saveLocation} state={this.state}/>
       </div>
     )

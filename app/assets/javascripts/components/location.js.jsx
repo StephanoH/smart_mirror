@@ -25,8 +25,10 @@ var Location = React.createClass({
     var that = this;
 
     $.get(googleMapsURL).done(function(response) {
-      for (var i=0; i < response.results[0].address_components.length; i++) {
+      for (var i = 0; i < response.results[0].address_components.length; i++) {
+        
         var element = response.results[0].address_components[i];
+
         if (element.types[0] === "locality") {
           location["city"] = element.long_name;
         } else if (element.types[0] === "administrative_area_level_1") {
@@ -35,12 +37,12 @@ var Location = React.createClass({
       };
       that.props.saveLocation(location);
     });
-    console.log(location);
   },
 
   render: function(){
     return (
         <div className="location">
+          <Weather latitude={this.props.state.latitude} longitude={this.props.state.longitude}/>
           <h1>{this.props.state.city}, {this.props.state.state}</h1>
         </div>
     )
