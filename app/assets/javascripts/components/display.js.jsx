@@ -5,23 +5,23 @@ var Display = React.createClass({
       state: null,
       latitude: null,
       longitude: null
-      // need to add fields for weather information
     });
 
-    this.saveLocation = this.saveLocation.bind(this);
   },
 
-  saveLocation: function(field, data) {
-    var change = {};
-    change[field] = word.target.value;
-    this.setState(change);
+  saveLocation: function(data) {
+    this.setState(data);
+
+    $.post('/location', this.state).done(function(response) {
+      console.log(response);
+    });
   },
 
   render: function() {
     return (
-    <div className="Widgets"> 
-      <Location googleMapsApiKey={this.props.googleMapsApiKey} saveLocation={this.saveLocation}/>
-    </div>
+      <div className="weather-location"> 
+        <Location googleMapsApiKey={this.props.googleMapsApiKey} saveLocation={this.saveLocation} state={this.state}/>
+      </div>
     )
   }
 })
