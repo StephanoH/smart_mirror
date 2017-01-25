@@ -17,6 +17,7 @@ var Weather = React.createClass({
   render: function() {
     return (
       <div className="weather">
+        <i className="wi wi-night-sleet"></i>
         <p>Hello, world!</p>
       </div>
     )
