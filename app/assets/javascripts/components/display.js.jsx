@@ -7,7 +7,6 @@ var Display = React.createClass({
       latitude: null,
       longitude: null
     });
-
   },
 
   saveLocation: function(data) {
@@ -21,7 +20,7 @@ var Display = React.createClass({
   render: function() {
     return (
       <div className="container">
-        <Location googleMapsApiKey={this.props.googleMapsApiKey} saveLocation={this.saveLocation} state={this.state}/>
+        <Location googleMapsApiKey={this.props.googleMapsApiKey} openWeatherMapApiKey={this.props.openWeatherMapApiKey} saveLocation={this.saveLocation} state={this.state}/>
       </div>
     )
   }
