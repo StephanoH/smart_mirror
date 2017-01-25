@@ -9,7 +9,7 @@ var Display = React.createClass({
     });
   },
 
-  saveLocation: function(data) {
+  savePosition: function(data) {
     this.setState(data);
 
     $.post('/location', this.state).done(function(response) {
@@ -20,7 +20,7 @@ var Display = React.createClass({
   render: function() {
     return (
       <div className="container">
-        <Location googleMapsApiKey={this.props.googleMapsApiKey} openWeatherMapApiKey={this.props.openWeatherMapApiKey} saveLocation={this.saveLocation} state={this.state}/>
+        <Position googleMapsApiKey={this.props.googleMapsApiKey} openWeatherMapApiKey={this.props.openWeatherMapApiKey} savePosition={this.savePosition} state={this.state}/>
       </div>
     )
   }
