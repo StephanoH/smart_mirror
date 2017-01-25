@@ -9,9 +9,9 @@ var Weather = React.createClass({
 
     console.log(weatherURL);
 
-    $.get(weatherURL).done(function(response) {
-      console.log(response);
-    });
+    // $.get(weatherURL).done(function(response) {
+    //   console.log(response);
+    // });
   },
 
   render: function() {
