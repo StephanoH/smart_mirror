@@ -9,14 +9,15 @@ var Weather = React.createClass({
 
     console.log(weatherURL);
 
-    $.get(weatherURL).done(function(response) {
-      console.log(response);
-    });
+    // $.get(weatherURL).done(function(response) {
+    //   console.log(response);
+    // });
   },
 
   render: function() {
     return (
       <div className="weather">
+        <i className="wi wi-night-sleet"></i>
         <p>Hello, world!</p>
       </div>
     )
