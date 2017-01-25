@@ -30,3 +30,7 @@ APIs used:
 
 Google Maps Api for reverse geocoding (human readable location from coordinates)
 OpenWeatherMap for weather
+
+Fonts used:
+
+WeatherIcon is a font used to show the current weather as, well, an icon. It was created by Erik Flowers, at https://github.com/erikflowers/weather-icons
