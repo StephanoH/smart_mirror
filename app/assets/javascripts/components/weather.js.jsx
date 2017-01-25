@@ -1,24 +1,36 @@
 var Weather = React.createClass({
+  getInitialState: function() {
+    return ({ iconClassName: null })
+  },
 
-  componentDidUpdate: function() {
-    this.getWeather();
+  componentDidUpdate: function(prevProps) {
+    if (this.props !== prevProps) {
+      this.getWeather();
+    }
   },
 
   getWeather: function() {
     var weatherURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + this.props.latitude + "&lon=" + this.props.longitude + "&APPID=" + this.props.openWeatherMapApiKey;
 
-    console.log(weatherURL);
+    var that = this;
 
-    // $.get(weatherURL).done(function(response) {
-    //   console.log(response);
-    // });
+    $.get(weatherURL).done(function(response) {
+      if (response.weather[0].id !== that.state.weatherCode) {
+        that.buildClassName(response.weather[0].id);
+      }
+    });
+  },
+
+  buildClassName: function(idCode) {
+    var iconClassString = "wi wi-owm-" + idCode;
+
+    this.setState({ iconClassName: iconClassString });
   },
 
   render: function() {
     return (
       <div className="weather">
-        <i className="wi wi-night-sleet"></i>
-        <p>Hello, world!</p>
+        <i className={this.state.iconClassName}></i>
       </div>
     )
   }
