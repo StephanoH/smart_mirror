@@ -1,6 +1,9 @@
 var Weather = React.createClass({
   getInitialState: function() {
-    return ({ iconClassName: null })
+    return ({ 
+      iconClassName: null,
+      temp: null 
+    });
   },
 
   componentDidUpdate: function(prevProps) {
@@ -10,21 +13,28 @@ var Weather = React.createClass({
   },
 
   getWeather: function() {
-    var weatherURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + this.props.latitude + "&lon=" + this.props.longitude + "&APPID=" + this.props.openWeatherMapApiKey;
+    var weatherURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + this.props.latitude + "&lon=" + this.props.longitude + "&units=imperial&APPID=" + this.props.openWeatherMapApiKey;
 
     var that = this;
 
     $.get(weatherURL).done(function(response) {
-      if (response.weather[0].id !== that.state.weatherCode) {
-        that.buildClassName(response.weather[0].id);
+
+      var weatherIdCode = response.weather[0].id;
+      var temp = Math.round(response.main.temp);
+
+      if (response.weather[0].id !== that.state.weatherCode || temp !== that.state.temp) {
+        that.saveWeather(weatherIdCode, temp);
       }
     });
   },
 
-  buildClassName: function(idCode) {
+  saveWeather: function(idCode, temp) {
     var iconClassString = "wi wi-owm-" + idCode;
 
-    this.setState({ iconClassName: iconClassString });
+    this.setState({ 
+      iconClassName: iconClassString,
+      temp: temp 
+    });
   },
 
   render: function() {
