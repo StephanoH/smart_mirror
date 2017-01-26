@@ -10,21 +10,24 @@ MVP goals:
 
 -geolocation functionality for localized weather
 -displays:
-
     -Weather
     -Time
+-CSS positioning via flexboxes
+
 
 Stretch goals:
 
--show 3 or 5 day forecast in Weather
+-show 3 or 5 day forecast for weather
 -show latest emails or news
-
 -add touch functionality for:
   
     -expanding weather information
     -cycling through saved cities for times
     -expanding email integration
     -expanding news integration
+    -media player controls (Spotify?)
+-deploy on heroku so multiple browsers can simply go to the website and show a Smart Mirror display
+    -most likely will need to integrate a check for flexbox compatibility with the browser (Modernizr?)
 
 APIs used: 
 
@@ -33,4 +36,4 @@ OpenWeatherMap for weather
 
 Fonts used:
 
-Weather Icons is a font used to show the current weather as, well, an icon. It was created by Erik Flowers, at https://github.com/erikflowers/weather-iconsw 
+-Weather Icons is a font used to show the current weather as, well, an icon. It was created by Erik Flowers, at https://github.com/erikflowers/weather-iconsw 
