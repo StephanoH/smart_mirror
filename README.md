@@ -9,16 +9,21 @@ Database (postgres) included for stretch goals
 MVP goals: 
 
 -geolocation functionality for localized weather
+
 -displays:
+
     -Weather
     -Time
+
 -CSS positioning via flexboxes
 
 
 Stretch goals:
 
 -show 3 or 5 day forecast for weather
+
 -show latest emails or news
+
 -add touch functionality for:
   
     -expanding weather information
@@ -26,8 +31,10 @@ Stretch goals:
     -expanding email integration
     -expanding news integration
     -media player controls (Spotify?)
+
 -deploy on heroku so multiple browsers can simply go to the website and show a Smart Mirror display
-    -most likely will need to integrate a check for flexbox compatibility with the browser (Modernizr?)
+
+  -most likely will need to integrate a check for flexbox compatibility with the browser (Modernizr?)
 
 APIs used: 
 

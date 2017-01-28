@@ -21,6 +21,7 @@ var Display = React.createClass({
     return (
       <div className="container">
         <Position googleMapsApiKey={this.props.googleMapsApiKey} openWeatherMapApiKey={this.props.openWeatherMapApiKey} savePosition={this.savePosition} state={this.state}/>
+        <DateTime/>
       </div>
     )
   }
