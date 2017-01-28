@@ -41,7 +41,7 @@ var Position = React.createClass({
     return (
       <div className="position module">
         <Weather latitude={this.props.state.latitude} longitude={this.props.state.longitude} openWeatherMapApiKey={this.props.openWeatherMapApiKey}/>
-        <h1>{this.props.state.city}, {this.props.state.state}</h1>
+        <p className="location">{this.props.state.city}, {this.props.state.state}</p>
       </div>
     )
   }
