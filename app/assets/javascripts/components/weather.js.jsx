@@ -40,6 +40,7 @@ var Weather = React.createClass({
   render: function() {
     return (
       <div className="weather">
+        <p className="temperature">{this.state.temp}°F</p>
         <i className={this.state.iconClassName}></i>
       </div>
     )

@@ -3,7 +3,43 @@ body {
   background-color: black;
 }
 
+.container {
+}
+
+.module {
+  max-width: 33%;
+}
+
+.position {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  text-align: center;
+}
+
+
+.weather {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+} 
+
+
+.location {
+  font-size: 2em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.temperature {
+  font-size: 4em;
+  align-items: flex-start;
+}
+
 .wi {
-  font-size: 12em;
-  font-weight: 100;
+  margin-bottom: none;
+  font-size: 10em;
+  align-items: flex-end;
 }
