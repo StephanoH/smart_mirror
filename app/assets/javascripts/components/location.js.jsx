@@ -1,4 +1,4 @@
-var Location = React.createClass({
+var Position = React.createClass({
 
   componentWillMount: function() {
     this.getCoordinates();
@@ -33,17 +33,16 @@ var Location = React.createClass({
         }
       };
 
-      that.props.saveLocation(location);
+      that.props.savePosition(location);
     });
   },
 
   render: function(){
     return (
-        <div className="location">
-          <Weather latitude={this.props.state.latitude} longitude={this.props.state.longitude} openWeatherMapApiKey={this.props.openWeatherMapApiKey}/>
-          <h1>{this.props.state.latitude}, {this.props.state.longitude}</h1>
-          <h1>{this.props.state.city}, {this.props.state.state}</h1>
-        </div>
+      <div className="position module">
+        <Weather latitude={this.props.state.latitude} longitude={this.props.state.longitude} openWeatherMapApiKey={this.props.openWeatherMapApiKey}/>
+        <p className="location">{this.props.state.city}, {this.props.state.state}</p>
+      </div>
     )
   }
 })
