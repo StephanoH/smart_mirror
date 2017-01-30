@@ -1,0 +1,31 @@
+.position {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  text-align: center;
+}
+
+.weather {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+} 
+
+
+.location {
+  font-size: 2em;
+  margin: 0px;
+}
+
+.temperature {
+  font-size: 4em;
+  align-items: flex-start;
+}
+
+.wi {
+  margin-bottom: none;
+  font-size: 10em;
+  align-items: flex-end;
+}
