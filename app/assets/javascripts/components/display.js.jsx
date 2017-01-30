@@ -1,13 +1,21 @@
 var Display = React.createClass({
 
   getInitialState: function() {
+    var dateTime = new Date();
+
     return ({
       city: null,
       state: null,
       latitude: null,
       longitude: null,
-      dateTime: new Date()
+      dateTime: dateTime
     });
+  },
+
+  componentDidMount: function() {
+    window.setInterval(function() {
+      this.setDateTime()
+    }.bind(this), 1000);
   },
 
   savePosition: function(data) {
@@ -18,9 +26,10 @@ var Display = React.createClass({
     });
   },
 
-  setDateTime: function(dateTime) {
+  setDateTime: function() {
+    var dateTime = new Date();
     this.setState({
-      dateTime = dateTime
+      dateTime: dateTime.toString()
     })
   },
 
