@@ -1,45 +1,19 @@
+@import 'position-module';
+@import 'datetime-module';
+
 body {
   color: white;
   background-color: black;
 }
 
 .container {
+  display: flex;
+  justify-content: space-between;
 }
 
 .module {
   max-width: 33%;
 }
 
-.position {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-content: space-around;
-  text-align: center;
-}
 
 
-.weather {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-} 
-
-
-.location {
-  font-size: 2em;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.temperature {
-  font-size: 4em;
-  align-items: flex-start;
-}
-
-.wi {
-  margin-bottom: none;
-  font-size: 10em;
-  align-items: flex-end;
-}
