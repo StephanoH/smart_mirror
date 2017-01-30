@@ -1,0 +1,19 @@
+.datetime {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-between;
+  text-align: center;
+}
+
+.time {
+  flex-align: center;
+  font-size: 6em;
+  margin: 0px;
+  margin-top: .5em;
+}
+
+.date {
+  font-size: 2em;
+  margin: 0px;
+}
