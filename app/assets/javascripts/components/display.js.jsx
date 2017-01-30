@@ -5,7 +5,8 @@ var Display = React.createClass({
       city: null,
       state: null,
       latitude: null,
-      longitude: null
+      longitude: null,
+      dateTime: new Date()
     });
   },
 
@@ -17,11 +18,17 @@ var Display = React.createClass({
     });
   },
 
+  setDateTime: function(dateTime) {
+    this.setState({
+      dateTime = dateTime
+    })
+  },
+
   render: function() {
     return (
       <div className="container">
         <Position googleMapsApiKey={this.props.googleMapsApiKey} openWeatherMapApiKey={this.props.openWeatherMapApiKey} savePosition={this.savePosition} state={this.state}/>
-        <DateTime/>
+        <DateTime dateTime={this.state.dateTime} setDateTime={this.setDateTime}/>
       </div>
     )
   }
