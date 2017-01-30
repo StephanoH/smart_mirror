@@ -6,6 +6,13 @@ var Weather = React.createClass({
     });
   },
 
+  // get weather every 15 minutes
+  componentDidMount: function() {
+    window.setInterval(function() {
+      this.getWeather();
+    }.bind(this), 900000);
+  },
+
   componentDidUpdate: function(prevProps) {
     if (this.props !== prevProps) {
       this.getWeather();
@@ -18,13 +25,10 @@ var Weather = React.createClass({
     var that = this;
 
     $.get(weatherURL).done(function(response) {
-
       var weatherIdCode = response.weather[0].id;
       var temp = Math.round(response.main.temp);
 
-      if (response.weather[0].id !== that.state.weatherCode || temp !== that.state.temp) {
-        that.saveWeather(weatherIdCode, temp);
-      }
+      that.saveWeather(weatherIdCode, temp);
     });
   },
 
