@@ -13,6 +13,9 @@ body {
 
 .module {
   max-width: 33%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 
