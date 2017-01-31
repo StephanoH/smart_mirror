@@ -6,23 +6,11 @@ React for front-end
 
 Database (postgres) included for stretch goals
 
-MVP goals: 
+Additional Goals:
 
--geolocation functionality for localized weather
+-show additional weather information (word description of weather, wind chill)
 
--displays:
-
-    -Weather
-    -Time
-
--CSS positioning via flexboxes
-
-
-Stretch goals:
-
--show 3 or 5 day forecast for weather
-
--show latest emails or news
+-show news headlines
 
 -add touch functionality for:
   
@@ -32,10 +20,6 @@ Stretch goals:
     -expanding news integration
     -media player controls (Spotify?)
 
--deploy on heroku so multiple browsers can simply go to the website and show a Smart Mirror display
-
-  -most likely will need to integrate a check for flexbox compatibility with the browser (Modernizr?)
-
 APIs used: 
 
 Google Maps Api for reverse geocoding (human readable location from coordinates)
@@ -43,4 +27,5 @@ OpenWeatherMap for weather
 
 Fonts used:
 
--Weather Icons is a font used to show the current weather as, well, an icon. It was created by Erik Flowers, at https://github.com/erikflowers/weather-iconsw 
+-Roboto Condensed through Google Fonts
+-Weather Icons is a font used to show the current weather as, well, an icon. It was created by Erik Flowers, at https://github.com/erikflowers/weather-icons
