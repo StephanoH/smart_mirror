@@ -13,18 +13,22 @@ var Weather = React.createClass({
     }.bind(this), 900000);
   },
 
+  // get weather if coordinates sent by Display changes
   componentDidUpdate: function(prevProps) {
     if (this.props !== prevProps) {
       this.getWeather();
     }
   },
 
+  // call weather API and call save function
   getWeather: function() {
     var weatherURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + this.props.latitude + "&lon=" + this.props.longitude + "&units=imperial&APPID=" + this.props.openWeatherMapApiKey;
 
     var that = this;
 
     $.get(weatherURL).done(function(response) {
+      console.log(response);
+
       var weatherIdCode = response.weather[0].id;
       var temp = Math.round(response.main.temp);
 
@@ -32,6 +36,7 @@ var Weather = React.createClass({
     });
   },
 
+  // format className from idCode and save to state
   saveWeather: function(idCode, temp) {
     var iconClassString = "wi wi-owm-" + idCode;
 
