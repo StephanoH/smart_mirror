@@ -4,7 +4,7 @@ Ruby version 2.3.3
 Rails version 5.0.1
 React for front-end
 
-Database (postgres) included for stretch goals
+Database (postgres) included for additional goals
 
 Additional Goals:
 
