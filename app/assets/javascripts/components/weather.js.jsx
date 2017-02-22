@@ -29,28 +29,51 @@ var Weather = React.createClass({
     $.get(weatherURL).done(function(response) {
       console.log(response);
 
-      var weatherIdCode = response.weather[0].id;
+      var weatherIconCode = response.weather[0].icon;
       var temp = Math.round(response.main.temp);
 
-      that.saveWeather(weatherIdCode, temp);
+      that.saveWeather(weatherIconCode, temp);
     });
   },
 
   // format className from idCode and save to state
-  saveWeather: function(idCode, temp) {
-    var iconClassString = "wi wi-owm-" + idCode;
-
+  saveWeather: function(iconCode, temp) {
     this.setState({ 
-      iconClassName: iconClassString,
+      iconCode: iconCode,
       temp: temp 
     });
+
   },
+
+  getIcon: function() {
+    var iconAssociations = {
+      "01d": "clear-day",
+      "02d": "partly-cloudy",
+      "03d": "mostly-cloudy",
+      "04d": "mostly-cloudy",
+      "09d": "rainy-day",
+      "10d": "rainy-day",
+      "11d": "storm-weather-day",
+      "50d": "haze-day",
+      "01n": "clear-night",
+      "02n": "partly-cloudy-night",
+      "03n": "mostly-cloudy-night",
+      "04n": "mostly-cloudy-night",
+      "09n": "rainy-night",
+      "10n": "rainy-night",
+      "11n": "storm-weather-night",
+    }
+
+    return iconAssociations[this.state.iconCode]
+  },
+
+  // TODO: make WeatherIcon component that determines the correct icon container to render based on props from Weather
 
   render: function() {
     return (
       <div className="weather">
         <p className="temperature">{this.state.temp}°F</p>
-        <i className={this.state.iconClassName}></i>
+        <img src={'/assets/' + this.getIcon() + '.png'} className="icon"/>  
       </div>
     )
   }
