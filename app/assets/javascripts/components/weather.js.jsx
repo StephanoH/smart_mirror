@@ -1,7 +1,8 @@
 var Weather = React.createClass({
+  // save the icon code and temperature from OpenWeatherMap 
   getInitialState: function() {
     return ({ 
-      iconClassName: null,
+      iconCode: null,
       temp: null 
     });
   },
@@ -23,9 +24,9 @@ var Weather = React.createClass({
   // call weather API and call save function
   getWeather: function() {
     var weatherURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + this.props.latitude + "&lon=" + this.props.longitude + "&units=imperial&APPID=" + this.props.openWeatherMapApiKey;
-
     var that = this;
 
+    // jQuery get request that saves the icon code and temp to variables and passes it to state.
     $.get(weatherURL).done(function(response) {
       console.log(response);
 
@@ -45,6 +46,7 @@ var Weather = React.createClass({
 
   },
 
+  // maps the icon codes from OpenWeatherMap to the name of the associated picture in the assets folder.
   getIcon: function() {
     var iconAssociations = {
       "01d": "clear-day",
@@ -66,8 +68,6 @@ var Weather = React.createClass({
 
     return iconAssociations[this.state.iconCode]
   },
-
-  // TODO: make WeatherIcon component that determines the correct icon container to render based on props from Weather
 
   render: function() {
     return (
